@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>片面2進数名刺デザイン案</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<style>
+		@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap');
+		body {
+			font-family: 'JetBrains Mono', 'Noto Sans JP', monospace;
+		}
+		.card-aspect {
+			width: 91mm;
+			height: 55mm;
+			box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+		}
+		/* Syntax Highlighting-like colors */
+		.comment { color: #6a737d; }
+		.keyword { color: #d73a49; }
+		.string { color: #032f62; }
+		.property { color: #005cc5; }
+		.value { color: #24292e; }
+		.function { color: #6f42c1; }
+
+		/* Styles for binary grade circles */
+		.circle {
+			width: 14px;
+			height: 14px;
+			border-radius: 50%;
+			display: inline-block;
+			box-sizing: border-box; /* Ensures border is inside */
+		}
+		.circle.on {
+			background-color: #24292e; /* Dark gray, matching text */
+			border: 2px solid #24292e;
+		}
+		.circle.off {
+			background-color: #ffffff; /* White */
+			border: 2px solid #24292e; /* Dark gray border */
+		}
+		.nowrap { white-space: nowrap; word-break: keep-all; }
+		</style>
+	</head>
+	<body class="bg-gray-200 flex flex-col items-center justify-center min-h-screen p-4 sm:p-8">
+
+		<!-- 名刺デザイン -->
+		<div class="bg-[#f8f9fa] rounded-lg p-0 card-aspect flex font-mono overflow-hidden">
+			<!-- 左のカラーバー -->
+			<div class="w-4 h-full flex flex-col">
+				<div class="h-1/3 bg-cyan-400 rounded-tl-lg"></div>
+				<div class="h-1/3 bg-blue-700"></div>
+				<div class="h-1/3 bg-pink-500 rounded-bl-lg"></div>
+			</div>
+
+			<!-- 右のコンテンツエリア (Code Editor) -->
+			<div class="flex-1 px-2 py-2 flex flex-col text-xs leading-tight">
+
+				<div class="flex-grow">
+					<!-- <p><span class="comment">// BusinessCard.ts</span></p> -->
+					<p class="mt-1"><span class="keyword">const</span> <span class="property">me</span> = {</p>
+					<p class="pl-4"><span class="property">name</span>: <span class="string">'永松 日月'</span>,</p>
+					<p class="pl-4"><span class="property">school</span>: <span class="string">'熊本高専'</span>,</p>
+					<p class="pl-4"><span class="property">major</span>: <span class="string">'情報通信エレクトロニクス工学科'</span>,</p>
+					<p>};</p>
+
+					<p class="mt-2"><span class="keyword">const</span> <span class="property">contact</span> = {</p>
+					<p class="pl-4"><span class="property">id</span>: <span class="string">'te22nagamatsu'</span>,</p>
+					<p class="pl-4"><span class="property">domain</span>: <span class="string">'g.kumamoto-nct.ac.jp'</span>,</p>
+					<p class="pl-4">
+						<span class="property">mail</span>:
+						<span class="function">() =&gt;</span>
+						<span class="nowrap">
+							<span class="string">`</span>
+							<span class="property">${</span><span class="value">contact.id</span><span class="property">}</span>
+							<span class="string">@</span>
+							<span class="property">${</span><span class="value">contact.domain</span><span class="property">}</span>
+							<span class="string">`</span>
+						</span>,
+					</p>
+					<p class="pl-4"><span class="property">github</span>: <span class="string">'github.com/Misodango'</span>,</p>
+					<p>};</p>
+				</div>
+
+			</div>
+		</div>
+
+	</body>
+</html>
